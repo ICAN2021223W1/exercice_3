@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="">
+	<h3>{{ note.matiere }}</h3>
+	<h4>{{ note.note }}</h4>
+	<hr />
+</div>
+	<h3 class="blue">{{ 'note.edit'|trans }}</h3>
+	{{ form(edit) }}
+{% endblock %}

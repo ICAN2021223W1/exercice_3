@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'note.matiere'|trans }} !{% endblock %}
+
+{% block body %}
+    <h2 style="margin-top: 50px;"> {{ 'matiere.show'|trans }}</h2>
+    <hr/>
+    {% if matieres is not empty %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'matiere.name'|trans }}</th>
+                    <th>{{ 'matiere.coef'|trans }}</th>
+                    <th>{{ 'matiere.action'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in matieres %}
+                    <tr>
+                        <td>
+                            {{ m.nom }}
+                        </td>
+                        <td>
+                            {{ m.coef }}
+                        </td>
+                        <td>
+                            <a href="{{ path('matiere_edit', {'id':m.id}) }}">
+                                {{ 'matiere.edit'|trans }}
+                            </a>
+                             / 
+                            <a href="{{ path('matiere_delete', {'id':m.id}) }}">
+                                {{ 'matiere.delete'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{{ 'matiere.empty'|trans }}</p>
+    {% endif %}
+
+    <h2>{{ 'matiere.add'|trans }}</h2>
+    {{ form(ajoutMatiere) }}
+{% endblock %}

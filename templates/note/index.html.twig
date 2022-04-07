@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'note.note'|trans }} !{% endblock %}
+
+{% block body %}
+    <h2> {{ 'note.list'|trans }}</h2>
+    <hr/>
+    <br>
+    {% if notes is not empty %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'note.note'|trans }}</th>
+                    <th>{{ 'note.matiere'|trans }}</th>
+                    <th>{{ 'note.coef'|trans }}</th>
+                    <th>{{ 'note.date'|trans }}</th>
+                    <th>{{ 'note.action'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in notes %}
+                    <tr>
+                        <td>
+                            {{ n.note }}
+                        </td>
+                        <td>
+                            {{ n.matiere.nom }}
+                        </td>
+                        <td>
+                            {{ n.matiere.coef }}
+                        </td>
+                        <td>
+                            {{n.datetime|date('d-m-Y H:i:s')}}
+                        </td>
+                        <td>
+                            <a href="{{ path('note_edit', {'id':n.id}) }}">
+                                {{ 'note.edit'|trans }}
+                            </a>
+                             /
+                            <a href="{{ path('note_delete', {'id':n.id}) }}">
+                                {{ 'note.delete'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2 style="margin-top: 50px;"> {{ 'note.moyenne'|trans }}</h2>
+        <hr/>
+        <br>
+        <div>
+            {% set totalNote = 0 %}
+            {% set totalCoef = 0 %}
+            {% for n in notes %}
+                {% set totalNote = totalNote + (n.note * n.matiere.coef) %}
+                {% set totalCoef = totalCoef + n.matiere.coef %}
+            {% endfor %}
+            {% set totalNote = totalNote / totalCoef %}
+            
+            <p style="font-size: 20px;"><span class="bold">{{totalNote}}</span></p>
+
+        </div>
+    {% else %}
+        <p> {{ 'note.empty'|trans }}</p>
+                        
+    {% endif %}
+
+    {% if matiere is empty %}
+        <p>
+            {{ 'matiere.empty'|trans }}
+            <a href="{{ path('app_matiere')}}"> {{ 'note.matiere'|trans }}</a>
+        </p>
+
+    {% else %}
+        <h2 style="margin-top: 50px;"> {{ 'note.add'|trans }}</h2>
+        <hr/>
+        {{ form(ajoutNote) }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,37 @@
+# messages.en.yaml
+
+home: Home
+matiere:
+  titre: Titre
+  ajoute: Subject added
+  introuvable: Subject not found
+  maj: Subject updated
+  supprimee: Subject deleted
+  empty: There is no subject
+  add: Add a subject
+  delete: Delete
+  edit: Edit
+  name: Nom
+  coef: Coefficient
+  action: Actions
+  show: Your subject(s)
+
+note:
+  moyenne: Your average
+  list: List of all your note(s)
+  titre: Titre
+  ajoute: Note added
+  introuvable: Note not found
+  maj: Note updated
+  supprimee: Note deleted
+  empty: There is no note
+  add: Add a note
+  delete: Delete
+  edit: Edit
+  note: Note
+  matiere: Subject
+  coef: Coefficient
+  date: Date
+  action: Actions
+
+  

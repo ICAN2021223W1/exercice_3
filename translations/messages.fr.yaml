@@ -1,0 +1,34 @@
+# messages.fr.yaml
+home: Accueil
+
+matiere:
+  show: Vos matière(s)
+  titre: Titre
+  ajoute: Matière ajoutée
+  introuvable: Matière introuvable
+  maj: Matière mise a jour
+  supprimee: Matière suprimée
+  empty: Il n'y a aucune matière
+  add: Ajouter une matière
+  delete: Supprimer
+  edit: Editer
+  name: Nom
+  coef: Coefficient
+  action: Actions
+note:
+  note: Note
+  moyenne: Votre moyenne
+  list: Liste de toute vos note(s)
+  matiere: Matière
+  coef: Coefficient
+  date: Date
+  action: Actions
+  titre: Titre
+  ajoute: Note ajoutée
+  introuvable: Note introuvable
+  maj: Note mise a jour
+  supprimee: Note suprimée
+  empty: Il n'y a aucune note
+  add: Ajouter une note
+  delete: Supprimer
+  edit: Editer
