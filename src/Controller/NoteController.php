@@ -27,7 +27,6 @@ class NoteController extends AbstractController
         $form = $this->createForm(NoteType::class, $note);
         $form->handleRequest($request);
 
-        dump($form);
         if($form->isSubmitted() && $form->isValid()){
             $em->persist($note);
             $em->flush();
